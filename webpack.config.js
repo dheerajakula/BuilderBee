@@ -8,7 +8,7 @@ const commonConfig = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         use: 'ts-loader',
         exclude: /node_modules/
       },
@@ -19,7 +19,7 @@ const commonConfig = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   }
 };
 
@@ -63,14 +63,28 @@ const engineConfig = {
   ],
   devServer: {
     port: 9000,
-    hot: true,
-    static: {
-        directory: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
+    host: 'localhost',
+    compress: true,
+    static: false,
+    hot: 'only',
+    devMiddleware: {
+      publicPath: '/',
+      writeToDisk: true,
     },
     headers: {
-        'Cross-Origin-Opener-Policy': 'same-origin',
-        'Cross-Origin-Embedder-Policy': 'require-corp'
+      'Access-Control-Allow-Origin': '*',
+      'Cross-Origin-Opener-Policy': 'same-origin',
+      'Cross-Origin-Embedder-Policy': 'require-corp'
+    },
+    historyApiFallback: true,
+    setupMiddlewares: (middlewares, devServer) => {
+      devServer.app.use((req, res, next) => {
+        if (res.headersSent) {
+          return;
+        }
+        next();
+      });
+      return middlewares;
     }
   }
 };

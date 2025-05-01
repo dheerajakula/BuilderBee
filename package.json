@@ -15,11 +15,16 @@
   },
   "dependencies": {
     "electron-store": "^8.1.0",
-    "playcanvas": "^1.62.0"
+    "leva": "^0.10.0",
+    "playcanvas": "^1.62.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",
     "@types/node": "^18.15.11",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "concurrently": "^9.1.2",
     "css-loader": "^6.7.3",
     "electron": "^24.0.0",
