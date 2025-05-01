@@ -1,4 +1,4 @@
-import { Editor } from './Editor';
+import { Editor } from '../editor/Editor';
 import { EditorComponent } from '../types';
 
 export class MenuManager implements EditorComponent {
