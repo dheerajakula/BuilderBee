@@ -45,19 +45,19 @@ const preloadConfig = {
   }
 };
 
-const rendererConfig = {
+const engineConfig = {
   ...commonConfig,
-  name: 'renderer',
+  name: 'engine',
   target: 'web',
-  entry: './src/renderer/index.ts',
+  entry: './src/engine/index.ts',
   output: {
-    filename: 'renderer.js',
+    filename: 'engine.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/renderer/index.html'
+      template: './src/engine/index.html'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
@@ -75,4 +75,4 @@ const rendererConfig = {
   }
 };
 
-module.exports = [mainConfig, preloadConfig, rendererConfig];
+module.exports = [mainConfig, preloadConfig, engineConfig];

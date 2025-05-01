@@ -1,7 +1,7 @@
 import * as pc from 'playcanvas';
 import { SceneView } from './SceneView';
-import { MenuManager } from './MenuManager';
-import { FileManager } from './FileManager';
+import { MenuManager } from '../services/MenuManager';
+import { FileManager } from '../services/FileManager';
 import { EditorEntity, SceneData } from '../types';
 
 export class Editor {

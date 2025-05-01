@@ -9,9 +9,9 @@
     "build:dev": "webpack --config webpack.config.js --mode development",
     "build:main:watch": "webpack --config webpack.config.js --config-name main --watch --mode development",
     "build:preload:watch": "webpack --config webpack.config.js --config-name preload --watch --mode development",
-    "serve:renderer": "webpack-dev-server --config webpack.config.js --config-name renderer --hot --mode development",
+    "serve:engine": "webpack-dev-server --config webpack.config.js --config-name engine --hot --mode development",
     "start:electron:dev": "wait-on http://localhost:9000 dist/main.js dist/preload.js && electron .",
-    "dev": "concurrently \"npm:build:main:watch\" \"npm:build:preload:watch\" \"npm:serve:renderer\" \"npm:start:electron:dev\""
+    "dev": "concurrently \"npm:build:main:watch\" \"npm:build:preload:watch\" \"npm:serve:engine\" \"npm:start:electron:dev\""
   },
   "dependencies": {
     "electron-store": "^8.1.0",
